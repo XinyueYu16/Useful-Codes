@@ -48,8 +48,11 @@ blob.blob(folder_path + '\\*.html') #读取文件夹内所有html文件
     
 ##  其他
 ### 正则表达式
+```
 pattern = re.compile(r'...')
 re.finditer(pattern, string) # 返回str内pattern出现的次数
+```
+
 
 ### 解决plt中文乱码
 ```
