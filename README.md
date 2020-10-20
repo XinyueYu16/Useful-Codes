@@ -53,6 +53,43 @@ pattern = re.compile(r'...')
 re.finditer(pattern, string) # 返回str内pattern出现的次数
 ```
 
+### 存/读字典
+[reference: CSDN] (https://blog.csdn.net/u014657795/article/details/85868413)
+```
+import json
+
+def load_dict(filename):
+    '''load dict from json file'''
+    with open(filename,"r") as json_file:
+	    dic = json.load(json_file)
+    return dic
+```
+```
+import json
+import datetime
+import numpy as np
+
+class JsonEncoder(json.JSONEncoder):
+
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, datetime):                                 
+            return obj.__str__()
+        else:
+            return super(MyEncoder, self).default(obj)
+
+def save_dict(filename, dic):
+    '''save dict into json file'''
+    with open(filename,'w') as json_file:
+        json.dump(dic, json_file, ensure_ascii=False, cls=JsonEncoder)
+
+```
+
 
 ### 解决plt中文乱码
 ```
