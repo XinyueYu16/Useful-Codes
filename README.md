@@ -54,7 +54,7 @@ re.finditer(pattern, string) # 返回str内pattern出现的次数
 ```
 
 ### 存/读字典
-[reference: CSDN] (https://blog.csdn.net/u014657795/article/details/85868413)
+[Reference: CSDN](https://blog.csdn.net/u014657795/article/details/85868413)
 ```
 import json
 
